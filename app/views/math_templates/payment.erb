@@ -1,0 +1,37 @@
+<% if params[:user_apr] == nil%>
+  <form action="/payment/results">
+    <div>
+      <label for="apr_input">APR</label>
+      <input id="apr_input" type="text" name="user_apr" placeholder="E.g. 5.42">
+    </div>
+    <div>
+      <label for="years_input">Number of years</label>
+      <input id="years_input" type="text" name="user_years" placeholder="How many years to repay?">
+    </div>
+    <div>
+      <label for="principal_input">Principal</label>
+      <input type="text" id="principal_input" name="user_pv" placeholder="How much principal?">
+    </div>
+    <div>
+      <button>Calculate monthly payment</button>
+    </div>
+  </form>
+
+  <%else%>
+  
+    <h1>Payment Results</h1>
+
+    <dl>
+      <dt>APR</dt>
+      <dd>  <%= @apr %>    </dd>
+      <dt>Number of years</dt>
+      <dd><%= @years %></dd>
+      <dt>Principal</dt>
+      <dd><%= @principal %></dd>
+      <dt>Payment</dt>
+      <dd><%= @payment %></dd>
+    </dl>
+
+    <a href="/payment/new">Calculate another payment</a>
+
+<%end%>
